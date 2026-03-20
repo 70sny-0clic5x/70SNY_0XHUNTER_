@@ -1,6 +1,10 @@
 # Project: 70SNY_0XHUNTER (v1.0-stable)
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
 
+### 🤖 Access the Tool
+To use this tool, please access our official Telegram bot: 
+[**@Oxhunter_h0sny_bot**](https://t.me/YourBotLink)
+
 ## 1. Overview
 `70SNY_0XHUNTER` is a high-speed OSINT (Open Source Intelligence) engine designed for automated username auditing across 28+ global social platforms and specialized Dark Web directories. The tool facilitates rapid digital footprint mapping by verifying account existence through asynchronous request handling and real-time data streaming.
 
