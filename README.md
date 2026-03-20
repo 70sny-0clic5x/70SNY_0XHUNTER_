@@ -1,20 +1,20 @@
 # Project: 70SNY_0XHUNTER (v1.0-stable)
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
 
-### 🤖 Access the Tool
-To use this tool, please access our official Telegram bot: 
-[**@Oxhunter_h0sny_bot**](https://t.me/YourBotLink)
+> [!IMPORTANT]
+> **Access the Tool:** To use this tool, please access our official Telegram bot: 
+> [**@Oxhunter_h0sny_bot**](https://t.me/Oxhunter_h0sny_bot)
 
 ## 1. Overview
-`70SNY_0XHUNTER` is a high-speed OSINT (Open Source Intelligence) engine designed for automated username auditing across 28+ global social platforms and specialized Dark Web directories. The tool facilitates rapid digital footprint mapping by verifying account existence through asynchronous request handling and real-time data streaming.
+`70SNY_0XHUNTER` is a **Hybrid Intelligence Framework** designed for deep digital footprint mapping. It bridges the gap between surface web auditing and darknet reconnaissance by combining automated **Tor-proxy tunneling** with high-speed scraping. The engine specializes in real-time extraction of PII (Personally Identifiable Information), including leaked emails, phone numbers, and crypto-wallets across both clear and onion services.
 
 ## 2. Technical Specifications
-* **Architecture:** Decoupled Client-Server model.
-* **Backend Engine:** Python 3.x / Flask utilizing **Multi-Threading** for concurrent I/O operations.
-* **Frontend Controller:** Asynchronous Vanilla JavaScript (ES6+) with stream-reading capabilities.
-* **Logic:** * Implements **Bypass Techniques** for Bot Detection and anti-scraping mechanisms.
-    * Extended support for specific **Dark Web** entry points to track anonymized aliases.
-    * Real-time UI synchronization via a dynamic "Scanning Wave" state machine.
+* **Architecture:** Decoupled Client-Server model with **SOCKS5 Tor Gateway** integration.
+* **Backend Engine:** Python 3.x / Flask utilizing **Multi-Threading** and **Playwright** for browser automation.
+* **Frontend Controller:** Asynchronous Vanilla JavaScript (ES6+) utilizing **Server-Sent Events (SSE)** for real-time result streaming.
+* **Recon Logic:** * **Regex Extraction Engine:** Automated pattern matching for emails, hashes, and blockchain addresses.
+    * **Onion Discovery:** Integrated scraping for specialized Dark Web directories (Ahmia, Torch, Dread).
+    * **Anti-Detection:** Implements dynamic **User-Agent rotation** and headless browser emulation to bypass anti-scraping mechanisms.
 
 ## 3. Core Functionalities
 * **Threaded Execution:** Concurrent scanning of multiple targets to minimize latency.
@@ -35,12 +35,3 @@ To initialize the environment, refer to the `requirements.txt` file for the nece
 ```bash
 pip install -r requirements.txt
 python app.py
-```
-## 7. Contact & Network
-For technical inquiries, hosting partnerships, or authorized access requests:
-
-LinkedIn: [Mohamed Hosny](https://www.linkedin.com/in/mohamed-hosny-1a2478352/)
-
-Telegram: @M0_H0SNY
-
-Lead Dev: 70SNY_0xHUNTER
