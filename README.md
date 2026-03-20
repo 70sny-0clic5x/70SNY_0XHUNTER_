@@ -2,7 +2,7 @@
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
 
 ## 1. Overview
-`HUNTER_USERNAME` is a high-speed OSINT (Open Source Intelligence) engine designed for automated username auditing across 28+ global social platforms and specialized Dark Web directories. The tool facilitates rapid digital footprint mapping by verifying account existence through asynchronous request handling and real-time data streaming.
+`70SNY_0XHUNTER` is a high-speed OSINT (Open Source Intelligence) engine designed for automated username auditing across 28+ global social platforms and specialized Dark Web directories. The tool facilitates rapid digital footprint mapping by verifying account existence through asynchronous request handling and real-time data streaming.
 
 ## 2. Technical Specifications
 * **Architecture:** Decoupled Client-Server model.
