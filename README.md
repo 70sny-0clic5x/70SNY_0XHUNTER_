@@ -24,8 +24,7 @@
 * **Environment:** Compatible with Linux/Unix/Windows environments.
 
 ## 5. Visual Documentation
-### 🖥️ Interface Status (Scanning Mode)
-![Project Demo](./assets/your-video-name.mp4)
+![Project Demo](./assets/70SNY_0XHUNTER.gif)
 
 ## 6. Deployment & Dependencies
 To initialize the environment, refer to the `requirements.txt` file for the necessary library stack:
