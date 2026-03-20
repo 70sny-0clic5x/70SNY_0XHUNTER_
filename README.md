@@ -25,10 +25,7 @@
 
 ## 5. Visual Documentation
 ### 🖥️ Interface Status (Scanning Mode)
-![Scanning State](./assets/scan_status.png)
-
-### 🔍 Results Matrix (Found/Not Found)
-![Final Output](./assets/result_matrix.png)
+![Scanning State](./assets/70SNY_0XHUNTER.mp4)
 
 ## 6. Deployment & Dependencies
 To initialize the environment, refer to the `requirements.txt` file for the necessary library stack:
