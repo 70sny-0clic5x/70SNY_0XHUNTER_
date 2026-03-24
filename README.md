@@ -2,9 +2,13 @@
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
 
 > [!IMPORTANT]
-> **Access the Tool:** To use this tool, please access our official Telegram bot: 
-> [**@Oxhunter_h0sny_bot**](https://t.me/Oxhunter_h0sny_bot)
-
+> **Access the Tool:**
+> Run the following commands to clone the repository and initiate the private bootloader:
+```bash
+git clone [https://github.com/your-username/70SNY_0xHUNTER.git](https://github.com/your-username/70SNY_0xHUNTER.git)
+cd 70SNY_0xHUNTER
+python 0XHUNTER_Launcher.py
+```
 ## 1. Overview
 `70SNY_0XHUNTER` is a **Hybrid Intelligence Framework** designed for deep digital footprint mapping. It bridges the gap between surface web auditing and darknet reconnaissance by combining automated **Tor-proxy tunneling** with high-speed scraping. The engine specializes in real-time extraction of PII (Personally Identifiable Information), including leaked emails, phone numbers, and crypto-wallets across both clear and onion services.
 
