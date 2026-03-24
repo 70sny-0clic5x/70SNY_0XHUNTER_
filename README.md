@@ -1,14 +1,6 @@
 # Project: 70SNY_0XHUNTER (v1.0-stable)
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
 
-> [!IMPORTANT]
-> **Access the Tool:**
-> Run the following commands to clone the repository and initiate the private bootloader:
-```bash
-git clone [https://github.com/your-username/70SNY_0xHUNTER.git](https://github.com/your-username/70SNY_0xHUNTER.git)
-cd 70SNY_0xHUNTER
-python 0XHUNTER_Launcher.py
-```
 ## 1. Overview
 `70SNY_0XHUNTER` is a **Hybrid Intelligence Framework** designed for deep digital footprint mapping. It bridges the gap between surface web auditing and darknet reconnaissance by combining automated **Tor-proxy tunneling** with high-speed scraping. The engine specializes in real-time extraction of PII (Personally Identifiable Information), including leaked emails, phone numbers, and crypto-wallets across both clear and onion services.
 
@@ -34,8 +26,27 @@ python 0XHUNTER_Launcher.py
 ## 5. Visual Documentation
 ![Project Demo](./assets/70SNY_0XHUNTER.gif)
 
-## 6. Deployment & Dependencies
-To initialize the environment, refer to the `requirements.txt` file for the necessary library stack:
+> [!IMPORTANT]
+> **Access the Tool:**
+> Run the following commands to clone the repository and initiate the private bootloader:
 ```bash
+git clone [https://github.com/your-username/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
+cd 70SNY_0xHUNTER
 pip install -r requirements.txt
-python app.py
+python 0XHUNTER_Launcher.py
+```
+```
+=============================================
+      🚀 70SNY_0xHUNTER - PRIVATE BOOTLOADER
+         Secure Cloud Synchronization
+=============================================
+🛰️ Connecting to Cloud Engine...
+🔓 Decrypting Security Layer...
+✅ Core Integrity Verified.
+🚀 Booting Engine in Memory...
+ * Serving Flask app '0XHUNTER_Launcher'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000  << go to here
+```
+
