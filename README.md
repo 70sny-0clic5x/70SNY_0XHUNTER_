@@ -1,6 +1,14 @@
 # Project: 70SNY_0XHUNTER (v1.0-stable)
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
-
+> [!IMPORTANT]
+> **Access the Tool:**
+> Run the following commands to clone the repository and initiate the private bootloader:
+```bash
+git clone [https://github.com/70sny-0clic5/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
+cd 70SNY_0xHUNTER
+pip install -r requirements.txt
+python 0XHUNTER_Launcher.py
+```
 ## 1. Overview
 `70SNY_0XHUNTER` is a **Hybrid Intelligence Framework** designed for deep digital footprint mapping. It bridges the gap between surface web auditing and darknet reconnaissance by combining automated **Tor-proxy tunneling** with high-speed scraping. The engine specializes in real-time extraction of PII (Personally Identifiable Information), including leaked emails, phone numbers, and crypto-wallets across both clear and onion services.
 
@@ -24,17 +32,6 @@
 * **Environment:** Compatible with Linux/Unix/Windows environments.
 
 ## 5. Visual Documentation
-![Project Demo](./assets/70SNY_0XHUNTER.gif)
-
-> [!IMPORTANT]
-> **Access the Tool:**
-> Run the following commands to clone the repository and initiate the private bootloader:
-```bash
-git clone [https://github.com/70sny-0clic5/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
-cd 70SNY_0xHUNTER
-pip install -r requirements.txt
-python 0XHUNTER_Launcher.py
-```
 ```
 =============================================
       🚀 70SNY_0xHUNTER - PRIVATE BOOTLOADER
@@ -47,4 +44,9 @@ python 0XHUNTER_Launcher.py
  * Serving Flask app '0XHUNTER_Launcher'
  * Debug mode: off
  * Running on http://127.0.0.1:5000      << GO TO HERE
+```
+![Project Demo](./assets/70SNY_0XHUNTER.gif)
+
+
+
 
