@@ -35,6 +35,7 @@ cd 70SNY_0xHUNTER
 pip install -r requirements.txt
 python 0XHUNTER_Launcher.py
 ```
+```
 =============================================
       🚀 70SNY_0xHUNTER - PRIVATE BOOTLOADER
            Secure Cloud Synchronization
