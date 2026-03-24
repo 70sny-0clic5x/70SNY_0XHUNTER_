@@ -30,23 +30,16 @@ def install_from_requirements():
         libraries = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
     for lib in libraries:
-      
         lib_name = lib.split('==')[0].split('>=')[0].strip().lower()
-        
-      
         import_mapping = {
             "flask-socketio": "flask_socketio",
             "googlesearch-python": "googlesearch",
             "beautifulsoup4": "bs4",
-            "python-dotenv": "dotenv",
-            "duckduckgo_search": "duckduckgo_search"
+            "python-dotenv": "dotenv"
         }
-        
-      
         import_name = import_mapping.get(lib_name, lib_name)
-        
         try:
-            importlib.import_module(import_name) 
+            __import__(import_name)
         except ImportError:
             missing_libs.append(lib)
 
@@ -59,19 +52,35 @@ def install_from_requirements():
                 lib_name = lib.split('==')[0].split('>=')[0].strip().lower()
                 print(f"📥 Installing {lib_name}...")
                 try:
+                  
                     subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
+                except Exception:
+                
+                    print(f"\n❌ Failed to install {lib_name} automatically.")
                     
-                 
-                    if "playwright" in lib_name:
-                        print("🌐 Initializing Playwright Core & Browsers...")
-                        subprocess.check_call([sys.executable, "-m", "playwright", "install", "chromium"])
-                except Exception as e:
-                    print(f"❌ Failed to install {lib_name}: {e}")
-            
-            print("\n✅ Environment ready! Restarting script to apply changes...")
-            time.sleep(2)
-            
-            os.execv(sys.executable, ['python'] + sys.argv) 
+                    if platform.system() == "Linux":
+                        print("💡 [KALI/LINUX DETECTED]: Your system blocks global pip installs (PEP 668).")
+                        print(f"👉 Run this command manually: \n   sudo pip install {lib} --break-system-packages")
+                    
+                    elif platform.system() == "Windows":
+                        print("💡 [WINDOWS DETECTED]: Permissions issue or Path error.")
+                        print(f"👉 Try running your Terminal/CMD as 'Administrator' and run: \n   pip install {lib}")
+                    
+                    print("-" * 30)
+                    time.sleep(1)
+
+           
+            if any("playwright" in l.lower() for l in missing_libs):
+                try:
+                    print("🌐 Initializing Playwright Core...")
+                    subprocess.check_call([sys.executable, "-m", "playwright", "install", "chromium"])
+                except:
+                    print("❌ Playwright initialization failed.")
+                    print("👉 Run manually: python -m playwright install chromium")
+
+            print("\n✅ Setup attempt finished. Please review any errors above.")
+            input("Press Enter to try restarting the script...")
+            os.execv(sys.executable, ['python'] + sys.argv)
         else:
             print("\n🛑 Execution aborted.")
             sys.exit()
