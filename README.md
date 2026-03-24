@@ -6,7 +6,6 @@
 ```bash
 git clone [https://github.com/70sny-0clic5/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
 cd 70SNY_0xHUNTER
-pip install -r requirements.txt
 python 0XHUNTER_Launcher.py
 ```
 ## 1. Overview
