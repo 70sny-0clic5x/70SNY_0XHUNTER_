@@ -30,15 +30,14 @@
 > **Access the Tool:**
 > Run the following commands to clone the repository and initiate the private bootloader:
 ```bash
-git clone [https://github.com/your-username/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
+git clone [https://github.com/70sny-0clic5/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
 cd 70SNY_0xHUNTER
 pip install -r requirements.txt
 python 0XHUNTER_Launcher.py
 ```
-```
 =============================================
       🚀 70SNY_0xHUNTER - PRIVATE BOOTLOADER
-         Secure Cloud Synchronization
+           Secure Cloud Synchronization
 =============================================
 🛰️ Connecting to Cloud Engine...
 🔓 Decrypting Security Layer...
@@ -46,7 +45,5 @@ python 0XHUNTER_Launcher.py
 🚀 Booting Engine in Memory...
  * Serving Flask app '0XHUNTER_Launcher'
  * Debug mode: off
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000  << go to here
-```
+ * Running on http://127.0.0.1:5000      << GO TO HERE
 
