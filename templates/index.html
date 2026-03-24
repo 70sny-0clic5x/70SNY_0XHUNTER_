@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>70SNY_0xHUNTER</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .main-content-area {
+            padding: 0 20px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+<div class="container cyb-main-container"></div>
+
+<div id="cyberAlert" class="cyber-alert"></div>
+
+<div class="header-wrapper d-flex flex-column gap-2">
+
+    <div class="d-flex justify-content-between align-items-start w-100 flex-wrap">
+        
+        <div class="switch-group-container">
+            <div id="darkWebToggleWrapper" class="form-check form-switch d-flex align-items-center gap-2">
+                <i class="fa-solid fa-ghost status-icon" id="headerIcon"></i>
+                
+                <input class="form-check-input" 
+                       type="checkbox" 
+                       id="darkWebToggle" 
+                       onchange="handleDarkWebFlow()">
+
+                <label class="form-check-label" style="font-size: 0.8rem; margin:0;">
+                    DARK_WEB_MODE
+                </label>
+            </div>
+
+            <div id="tor-status-card" class="glass-panel">
+                <div id="tor-loader">
+                    <div style="color: #666; font-family: monospace; font-size: 0.85rem; line-height: 1.4; text-align: left;">
+                        <i class="fa-solid fa-shield me-2"></i> 
+                        TOR: <span id="torStatus">OFFLINE</span><br>
+
+                        <i class="fa-solid fa-network-wired me-2"></i> 
+                        IP: <span id="torIP">0.0.0.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column align-items-end text-end">
+            <div class="brand-name">
+                <span class="prefix">70SNY</span><span class="hex">_0x</span><span class="suffix">HUNTER</span>
+            </div>
+
+            <div class="social-links d-flex gap-2">
+                <a href="https://www.linkedin.com/in/mohamed-hosny-1a2478352" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/70sny-0clic5x" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <div class="email-wrapper">
+                    <div class="social-icon" id="emailIcon" onclick="toggleEmail()">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    
+                    <div id="emailPopup" class="email-popup">
+                        <span id="emailText">mohamedhosnyj@gmail.com</span>
+                        <button onclick="copyEmail()" class="copy-btn">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                        <span id="copyFeedback" class="copy-feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="main-content-area">
+   <div class="d-flex justify-content-center gap-3 mb-4 mt-4">
+    <button id="btn-osint" class="nav-btn active" onclick="switchTab('osint')">
+        <i class="fa-solid fa-satellite-dish"></i> SEARCH_ENGINE
+    </button>
+    <button id="btn-hunter" class="nav-btn" onclick="switchTab('hunter')">
+        <i class="fa-solid fa-user-secret"></i> USERNAME_HUNTER
+    </button>
+</div>
+    <div id="osint-section">
+        <div class="glass-panel">
+            <div class="panel-header" onclick="toggleSection('searchBody')">
+                <span><i class="fa-solid fa-search me-2"></i> SEARCH_PARAMETERS</span>
+                <i class="fa-solid fa-chevron-down" id="arrow-searchBody"></i>
+            </div>
+            <div id="searchBody" class="p-3">
+                <form id="searchForm" onsubmit="startSearch(event)">
+                    <div class="row g-2 align-items-center" id="searchRow">
+                        <div class="col-12 col-md-4" id="queryWrapper">
+                            <div class="d-flex gap-2">
+                                <input type="text" id="queryInput"  class="form-control" placeholder="Target (Name, Email, Phone)..." required>
+                                <button type="button" id="deepScanBtn" onclick="toggleDeepScan(this)" class="btn btn-outline-secondary" title="Deep Scan (Dorks)">
+                                    <i class="fa-solid fa-ghost"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6 col-md-2" id="countryWrapper"> 
+                            <select id="countrySelect" class="form-select">
+                                <option value="GLOBAL" disabled selected> PHONE COUNTRY CODE </option>
+                                <option value="GLOBAL">Global / Auto-Detect 🌍</option>
+                                <option value="EG">Egypt (+20) 🇪🇬</option>
+                                <option value="SA">Saudi Arabia (+966) 🇸🇦</option>
+                                <option value="US">USA (+1) 🇺🇸</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6 col-md-2" id="depthWrapper"> 
+                            <select id="depthSelect" class="form-select">
+                                <option value="1">1 Page</option>
+                                <option value="2" selected>2 Pages</option>
+                                <option value="5">5 Pages</option>
+                                <option value="10">10 Pages</option>
+                                <option value="15">15 Pages</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-4 d-flex gap-2" id="actionBtnWrapper">
+                            <button type="submit" id="mainScanBtn" class=" btn-scan flex-grow-1 shadow-neon"><i class="fa-solid fa-bolt me-1"></i> SCAN</button>
+                            <button type="button" onclick="exportData('json')" class="btn btn-outline-info" title="Export JSON"><i class="fa-solid fa-file-code"></i></button>
+                            <button type="button" onclick="exportData('txt')" class="btn btn-outline-warning" title="Export TXT"><i class="fa-solid fa-file-lines"></i></button>
+                            <button type="button" onclick="resetAll()" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+           <div class="row g-3 mb-4 mt-2 px-2">
+              <div class="col-6 col-md-4 stat-col" id="emailCol"> 
+              <div class="stat-card" onclick="showQuickView('Emails')" style="cursor: pointer;">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="stat-val" id="emailStats">0</span>
+                <p>Emails</p>
+           </div>
+     </div>
+    
+    <div class="col-6 col-md-4 stat-col" id="phonePassCol">
+        <div class="stat-card" id="phonePassCard" onclick="handleCardClick()" style="cursor: pointer;">
+            <i id="phonePassIcon" class="fa-solid fa-phone mb-2" style="color: #bc13fe;"></i>
+            <span class="stat-val" id="phoneStats">0</span>
+            <small id="phonePassText">Phones Found</small>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-2 stat-col" id="dbCol" style="display: none;">
+        <div class="stat-card" onclick="showQuickView('Databases')" style="cursor: pointer;">
+            <i class="fa-solid fa-database mb-2" style="color: #bc13fe;"></i>
+            <span class="stat-val" id="dbStats">0</span>
+            <small>DBs Found</small>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-2 stat-col" id="walletCol" style="display: none;">
+        <div class="stat-card" onclick="showQuickView('Wallets')" style="cursor: pointer;">
+            <i class="fa-solid fa-wallet mb-2" style="color: #ffc107;"></i>
+            <span class="stat-val" id="walletStats">0</span>
+            <small>Wallets Found</small>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-2 stat-col" id="hashCol" style="display: none;">
+        <div class="stat-card" onclick="showQuickView('Hashes')" style="cursor: pointer;">
+            <i class="fa-solid fa-fingerprint mb-2" style="color: #ff4444;"></i>
+            <span class="stat-val" id="hashStats">0</span>
+            <small>Hashes Found</small>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-4 stat-col" id="totalCol">
+        <div class="stat-card">
+            <i class="fa-solid fa-circle-nodes mb-2" style="color: #bc13fe;"></i>
+            <span class="stat-val" id="resultsStats">0</span>
+            <small>Total Nodes</small>
+        </div>
+    </div>
+</div>
+
+        <div id="resultMap"></div>
+
+        <div class="glass-panel">
+            <div class="panel-header" onclick="toggleSection('resultsContainer')">
+                <span><i class="fa-solid fa-list-ul me-2"></i> DETAILED_REPORTS</span>
+                <i class="fa-solid fa-chevron-down" id="arrow-resultsContainer"></i>
+            </div>
+            <div id="resultsContainer">
+                <div id="results"><p class="text-center text-muted p-4">No active scan results.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hunter-section" style="display: none;">
+        <div class="glass-panel p-4">
+            <h5 style="color:#bc13fe" class="mb-4"><i class="fa-solid fa-crosshairs me-2"></i> TARGET_ENUMERATION</h5>
+            <div class="input-group mb-4">
+                <input type="text" id="usernameInput" class="form-control" placeholder="Enter Username...">
+                <button class=" btn-scan px-4" onclick="startHunter()"><i class="fa-solid fa-skull-crossbones me-2"></i> HUNT</button>
+                <button class="btn btn-outline-secondary" onclick="resetHunter()"> <i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+            <div id="hunterResults" class="row g-3"></div>
+        </div>
+    </div>
+</div>
+
+<div id="quickView">
+    <span class="qv-close" onclick="closeQuickView()"><i class="fa-solid fa-times"></i></span>
+    <h4 id="qv-title" style="color:#bc13fe">Filtered Data</h4>
+    <hr style="background:rgba(255,255,255,0.1)">
+    <div id="qv-content" style="max-height: 400px; overflow-y: auto;"></div>
+</div>
+
+<div class="main-content-area"></div>
+</div>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
