@@ -4,7 +4,7 @@
 > **Access the Tool:**
 > Run the following commands to clone the repository and initiate the private bootloader:
 ```bash
-git clone [https://github.com/70sny-0clic5/70SNY_0xHUNTER.git](https://github.com/70sny-0clic5/70SNY_0xHUNTER.git)
+git clone https://github.com/70sny-0clic5x/70SNY_0XHUNTER_.git
 cd 70SNY_0xHUNTER
 python 0XHUNTER_Launcher.py
 ```
