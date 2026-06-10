@@ -1,4 +1,4 @@
-# Project: 70SNY_0XHUNTER (v1.0-stable)
+# Project: 70SNY_0XHUNTER 
 **Advanced OSINT Framework for Digital Identity Correlation & Dark Web Reconnaissance**
 > [!IMPORTANT]
 > **Access the Tool:**
@@ -32,15 +32,6 @@ python 0XHUNTER_Launcher.py
 
 ## 5. Visual Documentation
 ```
-=============================================
-      🚀 70SNY_0xHUNTER - PRIVATE BOOTLOADER
-           Secure Cloud Synchronization
-=============================================
-🛰️ Connecting to Cloud Engine...
-🔓 Decrypting Security Layer...
-✅ Core Integrity Verified.
-🚀 Booting Engine in Memory...
- * Serving Flask app '0XHUNTER_Launcher'
  * Debug mode: off
  * Running on http://127.0.0.1:5000      << GO TO HERE
 ```
