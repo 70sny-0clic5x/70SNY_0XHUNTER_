@@ -32,6 +32,7 @@ python 0XHUNTER_Launcher.py
 
 ## 5. Visual Documentation
 ```
+ * Serving Flask app 'app-osint'
  * Debug mode: off
  * Running on http://127.0.0.1:5000      << GO TO HERE
 ```
