@@ -5,8 +5,8 @@
 > Run the following commands to clone the repository and initiate the private bootloader:
 ```bash
 git clone https://github.com/70sny-0clic5x/70SNY_0XHUNTER_.git
-cd 70SNY_0xHUNTER
-python 0XHUNTER_Launcher.py
+cd 70SNY_0xHUNTER_
+python app-osint.py
 ```
 ## 1. Overview
 `70SNY_0XHUNTER` is a **Hybrid Intelligence Framework** designed for deep digital footprint mapping. It bridges the gap between surface web auditing and darknet reconnaissance by combining automated **Tor-proxy tunneling** with high-speed scraping. The engine specializes in real-time extraction of PII (Personally Identifiable Information), including leaked emails, phone numbers, and crypto-wallets across both clear and onion services.
